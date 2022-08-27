@@ -90,15 +90,15 @@ print(f'The News paragraph ---- : {news_p}')
 
 
 # Setting featured image url
-features_image_url = "https://spaceimages-mars.com/"
+featured_image_url = "https://spaceimages-mars.com/"
 
 
 # In[27]:
 
 
 # Sending http request to the server
-response = requests.get(features_image_url)
-browser.visit(features_image_url)
+response = requests.get(featured_image_url)
+browser.visit(featured_image_url)
 
 
 # In[28]:
@@ -162,17 +162,18 @@ type(soup)
 #print(soup.prettify())
 
 
-# In[35]:
+# In[125]:
 
 
 # Use Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
-mars_data = pd.read_html("https://space-facts.com/mars/")[0]
+mars_data = pd.read_html("https://space-facts.com/mars/")[1]
 
 df = mars_data
+df.set_index('Mars - Earth Comparison', inplace=True)
 df
 
 
-# In[ ]:
+# In[126]:
 
 
 # Using Pandas to convert the data to a HTML table string.
