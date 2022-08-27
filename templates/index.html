@@ -3,12 +3,38 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Mission to Mars</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-    </head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
     <body>
+        <div class="container-fluid">
+            <div class="jumbotron text-center">
+              <h1>Welcome to the Red Planet</h1>
+              <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+            </div>
+            <h2>Latest Mars News</h2>
+            <h3>{{ redplanet.news_title }}</h3>
+            <p>{{ redplanet.news_p }} </p>
+            <div class="img-fluid">
+                <h4>Featured Mars Image</h4>
+                <img src="{{ redplanet.featured_img }}" alt="featured_img">
+                <h5>Mars Planet Profile</h5>
+                <table>
+                    {{redplanet.mrs_data}}
+                </table>
+                <div class="item">
+                    
+
+
+                </div>
+            </div>
+          </div>
+          </div>
+        
+        
         <script src="" async defer></script>
     </body>
 </html>
