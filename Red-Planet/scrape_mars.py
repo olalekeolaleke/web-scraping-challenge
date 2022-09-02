@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options
 import urllib.request
 import urllib3
 
-def Mission_to_Mars():
+def scrape_mars():
 
     redplanet = {}
 

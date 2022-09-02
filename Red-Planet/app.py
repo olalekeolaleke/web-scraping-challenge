@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
-import Missions_to_Mars
+import scrape_mars
 
 # Create an instance of Flask
 app = Flask(__name__)
@@ -29,7 +29,7 @@ def scrape():
     redplanet = mongo.db.redplanet
 
     # call the scrape function in our scrape_mars file. This will scrape and save to mongo.
-    redplanet_data = Missions_to_Mars.scrape_all()
+    redplanet_data = scrape_mars.scrape_all()
 
      # update our redplanet with the data that is being scraped.
     redplanet.update({}, redplanet_data, upsert=True)
