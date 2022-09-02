@@ -6,7 +6,8 @@ import Missions_to_Mars
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/red_planet_db")
+app.config["MONGO_URI"] = "mongodb://localhost:27017/red_planet_db"
+mongo = PyMongo(app)
 
 
 # Route to render index.html template using data from Mongo
@@ -28,13 +29,13 @@ def scrape():
     redplanet = mongo.db.redplanet
 
     # call the scrape function in our scrape_mars file. This will scrape and save to mongo.
-    redplanet_data = Missions_to_Mars.scrape()
+    redplanet_data = Missions_to_Mars.scrape_all()
 
      # update our redplanet with the data that is being scraped.
     redplanet.update({}, redplanet_data, upsert=True)
 
   # return a message to our page so we know it was successful.   
-    return redirect("http://localhost:5000/", code=302)
+    return redirect("/", code=302)
 
 if __name__ == "__main__":
     app.run(debug=True)
