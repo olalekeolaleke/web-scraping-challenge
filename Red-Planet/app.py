@@ -3,7 +3,8 @@ from flask_pymongo import PyMongo
 import scrape_mars
 
 # Create an instance of Flask
-app = Flask(__name__)
+app = Flask(__name__, template_folder= 'templates')
+
 
 # Use PyMongo to establish Mongo connection
 app.config["MONGO_URI"] = "mongodb://localhost:27017/red_planet_db"
@@ -29,7 +30,7 @@ def scrape():
     redplanet = mongo.db.redplanet
 
     # call the scrape function in our scrape_mars file. This will scrape and save to mongo.
-    redplanet_data = scrape_mars.scrape_all()
+    redplanet_data = scrape_mars.scrape_mars()
 
      # update our redplanet with the data that is being scraped.
     redplanet.update({}, redplanet_data, upsert=True)

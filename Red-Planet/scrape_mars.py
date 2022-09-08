@@ -30,8 +30,8 @@ def scrape_mars():
 
 
     # Printing the entire article
-    article = soup.find("div", class_="list_text").text
-    print(article)
+    article = soup.find("div", class_="list_text")
+    # print(article)
 
     redplanet["article"] = article
 
